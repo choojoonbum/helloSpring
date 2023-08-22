@@ -2,4 +2,4 @@
 out
 target
 helloSpring.iml
-
+src/main/resources/db.properties

@@ -24,6 +24,7 @@
             <param-value>
                 config.WebMvcConfig
                 config.DBconfig
+                config.SpringConfig
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
