@@ -24,7 +24,9 @@
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
+<main role="main" class="container">
 <tiles:insertAttribute name="body"/>
+</main>
 <tiles:insertAttribute name="footer"/>
 </body>
 </html>

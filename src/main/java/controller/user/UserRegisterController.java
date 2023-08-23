@@ -20,23 +20,23 @@ public class UserRegisterController {
     private UserRegisterService userRegisterService;
 
     @GetMapping("/user/register")
-    public String registerForm() {
+    public String registerForm(@ModelAttribute("formData") UserRegisterCommand request) {
         return "user.register";
     }
 
     @PostMapping("/user/register")
     public String registerSubmit(@ModelAttribute("formData") @Valid UserRegisterCommand request, Errors errors) {
-        if (errors.hasErrors()) return "user/register";
+        if (errors.hasErrors()) return "user.register";
         try {
             userRegisterService.join(request);
-            return "user/success";
+            return "user.success";
         } catch (ExistMemberException e) {
             if (e.getMessage() == "email") errors.rejectValue("email", "duplicate");
             if (e.getMessage() == "userId") errors.rejectValue("userId", "duplicate");
-            return "user/register";
+            return "user.register";
         } catch (WrongIdPasswordException e) {
             errors.rejectValue("confirmPassword", "nomatch");
-            return "user/register";
+            return "user.register";
         }
     }
 }

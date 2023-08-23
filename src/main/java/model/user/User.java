@@ -29,4 +29,7 @@ public class User {
         createDate = LocalDateTime.now();
     }
 
+    public boolean matchPassword(String password) {
+        return this.password.equals(password);
+    }
 }
