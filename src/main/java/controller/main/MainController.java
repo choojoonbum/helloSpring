@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainController {
     @RequestMapping("/")
-    public String main(HttpSession session) {
+    public String main() {
         return "main.main";
     }
 }
