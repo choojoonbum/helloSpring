@@ -23,9 +23,9 @@ public class BoardListController {
 
     @GetMapping({"", "/"})
     public String findBoardList(@PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable, Model model, HttpServletRequest request) {
-        Page<Board> pageBoard = boardService.findBoardList(pageable);
+        Page<Board> pageBoard = boardService.getBoardList(pageable);
         model.addAttribute("boardList", pageBoard);
-        model.addAttribute("pagingStr", Pagination.pagingStr(pageBoard, 5, request.getContextPath()));
+        model.addAttribute("pagingStr", Pagination.pagingStr(pageBoard, 5, request.getContextPath() + "/board"));
         return "board.list";
     }
 

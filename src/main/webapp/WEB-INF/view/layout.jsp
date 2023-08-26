@@ -13,14 +13,12 @@
     <meta name="generator" content="Hugo 0.101.0">
     <title><tiles:insertAttribute name="title" /></title>
     <!-- Bootstrap core CSS -->
-    <link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/static/assets/dist/css/bootstrap.min.css"/>" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="/static/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/static/assets/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-
-    </style>
+    <script src="<c:url value="/static/assets/js/vendor/jquery.slim.min.js"/>"></script>
+    <script src="<c:url value="/static/assets/dist/js/bootstrap.bundle.min.js"/>"></script>
     <!-- Custom styles for this template -->
-    <link href="/static/css/starter-template.css" rel="stylesheet">
+    <link href="<c:url value="/static/css/starter-template.css"/>" rel="stylesheet">
 </head>
 <body>
 <tiles:insertAttribute name="header"/>

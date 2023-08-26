@@ -1,6 +1,8 @@
 package controller.user;
 
 import command.LoginCommand;
+import common.ScriptUtils;
+import common.SessionUtil;
 import exception.WrongIdPasswordException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,15 +15,19 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Controller
-@RequestMapping("/user/login")
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
     AuthService authService;
 
     @GetMapping
-    public String form(@ModelAttribute("loginCommand") LoginCommand loginCommand, @CookieValue(value = "rememberUserId", required = false) Cookie cookie) {
+    public String form(@ModelAttribute("loginCommand") LoginCommand loginCommand, @CookieValue(value = "rememberUserId", required = false) Cookie cookie, HttpServletResponse response) throws IOException {
+        if (SessionUtil.getSession().getAttribute("authInfo") != null) {
+            ScriptUtils.alertAndBackPage(response, "이미 로그인중입니다.");
+        }
         if (cookie != null) {
             loginCommand.setUserId(cookie.getValue());
             loginCommand.setRememberUserId(true);

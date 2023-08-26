@@ -17,6 +17,6 @@ public class AuthService {
             throw new WrongIdPasswordException();
         }
 
-        return new AuthInfo(user.getUserId(), user.getEmail(), user.getName(), user.getRole());
+        return new AuthInfo(user.getUserNo(), user.getUserId(), user.getRole());
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.jdbc.JdbcTestUtils;
+import repository.board.BoardRepository;
 import repository.user.UserRepository;
 import service.board.BoardRegisterService;
 import service.board.BoardService;
@@ -35,6 +36,8 @@ public class BoardRepositoryTest {
     @Autowired
     BoardService boardService;
 
+    @Autowired
+    BoardRepository boardRepository;
     @Autowired
     private DataSource dataSource;
 
@@ -68,5 +71,14 @@ public class BoardRepositoryTest {
 
         //int count = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "board", "title = '테스트글 제목'");
        //assertThat(count, equalTo(1));
+    }
+
+    @Test
+    public void view22() throws Exception {
+        Board board = boardRepository.findByBoardNo(Long.valueOf(102));
+        board.setVisitCount(1);        
+        System.out.println(board);
+        System.out.println("test!!!!");
+
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
 @Configuration
-@ComponentScan(basePackages = {"controller","service"})
+@ComponentScan(basePackages = {"controller","service", "interceptor"})
 public class SpringConfig {
     @Bean
     public static PropertySourcesPlaceholderConfigurer properties() {

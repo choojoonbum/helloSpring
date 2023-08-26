@@ -24,10 +24,11 @@ public class Board {
     private User user;
 
     @Builder
-    public Board(String title, String content, LocalDateTime createDate, int visitCount) {
+    public Board(String title, String content, LocalDateTime createDate, int visitCount, User user) {
         this.title = title;
         this.content = content;
         this.createDate = createDate;
         this.visitCount = visitCount;
+        this.user = user;
     }
 }

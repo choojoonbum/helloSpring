@@ -9,22 +9,24 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import service.user.UserRegisterService;
 
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/user")
 public class UserRegisterController {
 
     @Autowired
     private UserRegisterService userRegisterService;
 
-    @GetMapping("/user/register")
+    @GetMapping
     public String registerForm(@ModelAttribute("formData") UserRegisterCommand request) {
         return "user.register";
     }
 
-    @PostMapping("/user/register")
+    @PostMapping
     public String registerSubmit(@ModelAttribute("formData") @Valid UserRegisterCommand request, Errors errors) {
         if (errors.hasErrors()) return "user.register";
         try {
