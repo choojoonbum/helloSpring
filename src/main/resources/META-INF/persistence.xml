@@ -11,6 +11,7 @@
         <class>model.user.UserInfo</class>
         <class>model.user.UserLog</class>
         <class>model.board.Board</class>
+        <class>model.board.Attach</class>
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

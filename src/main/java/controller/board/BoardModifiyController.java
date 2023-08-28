@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import service.board.BoardService;
 
 import javax.validation.Valid;
+import java.util.Collections;
 
 @Controller
 @RequestMapping("/board/modify/{id}")
@@ -20,7 +21,7 @@ public class BoardModifiyController {
     @GetMapping
     public String modifiyForm(@PathVariable("id") Long brdNo, Model model) {
         Board board = boardService.getBoard(brdNo);
-        model.addAttribute("formData", new BoardCommand(board.getTitle(),board.getContent()));
+        model.addAttribute("formData", new BoardCommand(board.getTitle(), board.getContent(),Collections.emptyList()));
         return "board.modify";
     }
 
